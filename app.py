@@ -12,7 +12,9 @@ def home():
     score=None
     crack=None
     color=None
+
     ports=None
+    ip=None
 
     if request.method=="POST":
 
@@ -21,7 +23,9 @@ def home():
             check_password(request.form["password"])
 
         if "target" in request.form:
-            ports=scan_ports(request.form["target"])
+            ip,ports=scan_ports(
+                request.form["target"]
+            )
 
     return render_template(
         "index.html",
@@ -30,7 +34,8 @@ def home():
         score=score,
         crack=crack,
         color=color,
-        ports=ports
+        ports=ports,
+        ip=ip
     )
 
 if __name__=="__main__":
