@@ -8,18 +8,16 @@ app = Flask(__name__)
 def home():
 
     strength=None
-    entropy=None
     score=None
     crack=None
     color=None
-
     ports=None
     ip=None
 
     if request.method=="POST":
 
         if "password" in request.form:
-            strength,entropy,score,crack,color=\
+            strength,score,crack,color=\
             check_password(request.form["password"])
 
         if "target" in request.form:
@@ -30,7 +28,6 @@ def home():
     return render_template(
         "index.html",
         strength=strength,
-        entropy=entropy,
         score=score,
         crack=crack,
         color=color,
