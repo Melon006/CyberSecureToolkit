@@ -1,1 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CyberSecure Toolkit</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
 
+<body>
+
+<h1>CyberSecure Toolkit v2</h1>
+
+<div class="box">
+
+<h2>Password Analyzer</h2>
+
+<form method="POST">
+<input type="password" name="password" required>
+<button>Analyze</button>
+</form>
+
+{% if strength %}
+<div class="terminal">
+<p>Strength: {{strength}}</p>
+<p>Entropy: {{entropy}}</p>
+<p>Score: {{score}}/100</p>
+<p>Crack Time: {{crack}}</p>
+</div>
+{% endif %}
+
+<hr>
+
+<h2>Port Scanner</h2>
+
+<form method="POST">
+<input type="text" name="target"
+placeholder="127.0.0.1" required>
+<button>Scan</button>
+</form>
+
+{% if ports %}
+<div class="terminal">
+{% for port,service in ports %}
+<p>OPEN {{port}} → {{service}}</p>
+{% endfor %}
+</div>
+{% endif %}
+
+</div>
+
+</body>
+</html>
