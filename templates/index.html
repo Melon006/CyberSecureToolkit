@@ -7,41 +7,49 @@
 
 <body>
 
-<h1>CyberSecure Toolkit v2</h1>
+<h1>⚡ CyberSecure Toolkit v3</h1>
 
-<div class="box">
+<div class="panel">
 
-<h2>Password Analyzer</h2>
+<h2>Password Intelligence</h2>
 
 <form method="POST">
-<input type="password" name="password" required>
+<input type="password" name="password"
+placeholder="Enter Password">
 <button>Analyze</button>
 </form>
 
 {% if strength %}
 <div class="terminal">
-<p>Strength: {{strength}}</p>
-<p>Entropy: {{entropy}}</p>
-<p>Score: {{score}}/100</p>
-<p>Crack Time: {{crack}}</p>
+<p>[+] Password Analysis Complete</p>
+<p style="color:{{color}}">
+Strength → {{strength}}
+</p>
+<p>Security Score → {{score}}%</p>
+<p>Crack Time → {{crack}}</p>
 </div>
 {% endif %}
 
 <hr>
 
-<h2>Port Scanner</h2>
+<h2>Target Scanner</h2>
 
 <form method="POST">
-<input type="text" name="target"
-placeholder="127.0.0.1" required>
-<button>Scan</button>
+<input name="target"
+placeholder="Enter URL or IP">
+<button>Scan Target</button>
 </form>
 
-{% if ports %}
+{% if ip %}
 <div class="terminal">
+<p>[+] Target Resolved → {{ip}}</p>
+<p>[+] Starting Enumeration...</p>
+
 {% for port,service in ports %}
-<p>OPEN {{port}} → {{service}}</p>
+<p>[OPEN] {{port}} → {{service}}</p>
 {% endfor %}
+
+<p>[✓] Scan Complete</p>
 </div>
 {% endif %}
 
