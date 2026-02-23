@@ -3,7 +3,6 @@ import socket
 COMMON_PORTS = {
     21:"FTP",
     22:"SSH",
-    23:"Telnet",
     25:"SMTP",
     53:"DNS",
     80:"HTTP",
@@ -21,7 +20,6 @@ def resolve_target(target):
         return socket.gethostbyname(target)
     except:
         return None
-
 
 def scan_ports(target):
 
@@ -42,6 +40,10 @@ def scan_ports(target):
             results.append((port,service))
         except:
             pass
+
+        s.close()
+
+    return ip, results
 
         s.close()
 
