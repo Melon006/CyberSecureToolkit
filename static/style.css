@@ -1,51 +1,72 @@
 body{
-background:#05070d;
-color:#00ff9f;
+margin:0;
+background:#020409;
 font-family:monospace;
-text-align:center;
+color:#00ffcc;
 }
 
-h1{
-color:#00ff9f;
-text-shadow:0 0 10px #00ff9f;
+.sidebar{
+position:fixed;
+width:200px;
+height:100vh;
+background:#030712;
+box-shadow:0 0 25px #00ffcc;
+padding:20px;
 }
 
-.panel{
-background:#0f172a;
-width:65%;
-margin:auto;
-padding:30px;
-border-radius:12px;
-box-shadow:0 0 25px #00ff9f;
+.sidebar h2{
+text-shadow:0 0 15px #00ffcc;
+}
+
+.sidebar p{
+margin:20px 0;
+}
+
+.main{
+margin-left:220px;
+padding:40px;
+}
+
+.card{
+background:#050b18;
+padding:25px;
+margin-bottom:30px;
+border-radius:10px;
+box-shadow:0 0 20px #00ffcc44;
 }
 
 input{
 width:60%;
 padding:12px;
-margin:10px;
 background:black;
-color:#00ff9f;
-border:1px solid #00ff9f;
+border:1px solid #00ffcc;
+color:#00ffcc;
+margin:10px;
 }
 
 button{
 padding:12px;
-background:#00ff9f;
+background:#00ffcc;
 border:none;
 cursor:pointer;
 }
 
 button:hover{
-background:#00cc7a;
+box-shadow:0 0 15px #00ffcc;
 }
 
 .terminal{
 background:black;
 padding:20px;
-text-align:left;
-margin-top:20px;
-border-radius:8px;
 height:260px;
 overflow:auto;
-box-shadow:0 0 15px #00ff9f inset;
+box-shadow:0 0 20px #00ffcc inset;
+}
+
+.open{
+color:#00ff00;
+}
+
+.done{
+color:#00ffff;
 }
