@@ -3,55 +3,70 @@
 <head>
 <title>CyberSecure Toolkit</title>
 <link rel="stylesheet" href="/static/style.css">
+<script src="/static/matrix.js"></script>
 </head>
 
 <body>
 
-<h1>⚡ CyberSecure Toolkit v3</h1>
+<div class="sidebar">
+<h2>⚡ CST</h2>
+<p>Recon</p>
+<p>Password</p>
+<p>Status</p>
+</div>
 
-<div class="panel">
+<div class="main">
 
-<h2>Password Intelligence</h2>
+<h1>CyberSecure Toolkit v4</h1>
+
+<div class="card">
+
+<h3>Password Intelligence</h3>
 
 <form method="POST">
-<input type="password" name="password"
+<input type="password"
+name="password"
 placeholder="Enter Password">
 <button>Analyze</button>
 </form>
 
 {% if strength %}
 <div class="terminal">
-<p>[+] Password Analysis Complete</p>
+<p>> Password Analysis Loaded</p>
 <p style="color:{{color}}">
 Strength → {{strength}}
 </p>
 <p>Security Score → {{score}}%</p>
-<p>Crack Time → {{crack}}</p>
+<p>Estimated Crack Time → {{crack}}</p>
 </div>
 {% endif %}
 
-<hr>
+</div>
 
-<h2>Target Scanner</h2>
+<div class="card">
+
+<h3>Recon Scanner</h3>
 
 <form method="POST">
 <input name="target"
-placeholder="Enter URL or IP">
-<button>Scan Target</button>
+placeholder="domain.com or IP">
+<button>Start Scan</button>
 </form>
 
 {% if ip %}
 <div class="terminal">
-<p>[+] Target Resolved → {{ip}}</p>
-<p>[+] Starting Enumeration...</p>
+<p>> Target Locked → {{ip}}</p>
+<p>> Enumerating Services...</p>
 
 {% for port,service in ports %}
-<p>[OPEN] {{port}} → {{service}}</p>
+<p class="open">[OPEN] {{port}} → {{service}}</p>
 {% endfor %}
 
-<p>[✓] Scan Complete</p>
+<p class="done">SCAN COMPLETE</p>
 </div>
 {% endif %}
+
+</div>
 
 </div>
 
